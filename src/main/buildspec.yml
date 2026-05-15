@@ -1,0 +1,21 @@
+version: 0.2
+
+env:
+  secrets-manager:
+    DATABASE_PASS: "my-app-secrets:DB_PASSWORD"
+
+phases:
+  install:
+    commands:
+      - echo "Install phase started"
+
+  build:
+    commands:
+      - echo "Creating simple webpage..."
+      - mkdir -p output
+      - echo "<html><head><title>DevOps Experiment 12</title></head><body><h1>Welcome to AWS DevOps</h1><p>Security Integration using Secrets Manager and CodePipeline</p></body></html>" > output/index.html
+      - echo "Build completed successfully"
+
+artifacts:
+  files:
+    - output/index.html
